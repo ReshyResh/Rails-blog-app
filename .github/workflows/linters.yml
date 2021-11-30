@@ -1,0 +1,20 @@
+name: Linters
+
+on: pull_request
+
+jobs:
+  rubocop:
+    name: Rubocop
+    runs-on: ubuntu-18.04
+    
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-ruby@v1
+        with:
+          ruby-version: ">=3.0.x"
+      - name: Setup Rubocop
+        run: |
+          gem install --no-document rubocop -v '>= 1.0, < 2.0' # https://docs.rubocop.org/en/stable/installation/
+          [ -f .rubocop.yml ] || wget https://gist.githubusercontent.com/ReshyResh/ca6afe4f3818c4f699e2e0555ed1220d/raw/282eb02e0abf5a8f3fcb3c90c1ae975a07dd9e97/rubocop.yml
+      - name: Rubocop Report
+        run: rubocop --color
