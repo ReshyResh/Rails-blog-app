@@ -12,8 +12,10 @@ Simple blog app to understand RoR basics.
 Make sure you have the latest version of Ruby installed.
 
 If you're on Windows, consider installing a version lower than 3.0 as it is known to cause installation issues with the `pg` gem.
-  - Clone the repo
-  - Run `bundle install` in the command line to install the dependencies
+  - Clone the repo.
+  - Run `bundle install` in the command line to install the dependencies.
+  - Make sure to create a new user that will be used to access the DB with the credentials in `database.yml`.
+  - Setup the DB by running `rake db:setup`.
   - Run `rails s` to start the server.
   - Open up the page `localhost:3000` on your browser to display the app.
 
