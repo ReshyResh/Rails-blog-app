@@ -1,4 +1,4 @@
-class User < ApplicationRecord
+class Users < ApplicationRecord
     # A method that returns the 3 most recent posts for a given user.
 
     def show_posts(id)
