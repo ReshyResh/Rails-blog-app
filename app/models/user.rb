@@ -8,4 +8,8 @@ class User < ApplicationRecord
   def show_posts(id)
     Post.where('user_id = ?', id).order(created_at: :asc).limit(3)
   end
+
+  def get_number_of_posts(id)
+    Post.where('user_id = ?', id).count
+  end
 end

@@ -12,6 +12,10 @@ class Post < ApplicationRecord
   # A method which returns the 5 most recent comments for a given post.
 
   def recent_comments(post_id)
-    comments.where('post_id = ?', post_id).order(created_at: :asc).limit(5)
+    Comment.where('post_id = ?', post_id).order(created_at: :asc).limit(5)
+  end
+
+  def get_number_of_comments(post_id)
+    Comment.where('post_id = ?', post_id).count
   end
 end

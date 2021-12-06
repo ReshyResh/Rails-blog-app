@@ -2,6 +2,6 @@
     <div class="user-div">
         <img class = "user-image" alt='alt image for <%= user.name %>' />
         <h2> <%= user.name %> </h2>
-        <p class="user-posts"> User posts:<%= user.posts_counter %> </p>
+        <p class="user-posts"> Number of posts:<%= user.get_number_of_posts(user.id) %> </p>
     </div>
 <% end %>

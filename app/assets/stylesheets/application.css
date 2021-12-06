@@ -41,3 +41,9 @@
  .user-details-container {
      display: flex;
  }
+
+ /* Comment styling */
+ .comments {
+     border: 1px solid red;
+     margin: 10px 0 10px 0;
+ }
