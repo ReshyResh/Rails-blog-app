@@ -1,7 +1,9 @@
 <% User.all.each do |user| %>
     <div class="user-div">
         <img class = "user-image" alt='alt image for <%= user.name %>' />
+        <a href="/users/<%= user.id %>">
         <h2> <%= user.name %> </h2>
-        <p class="user-posts"> Number of posts:<%= user.get_number_of_posts(user.id) %> </p>
+        </a>
+        <h2 class="user-posts"> Number of posts:<%= user.get_number_of_posts(user.id) %> </h2>
     </div>
 <% end %>
