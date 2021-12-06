@@ -2,8 +2,7 @@ class Posts < ApplicationRecord
     # A method that updates the posts counter for a user.
 
     def update_counter(n,user_id)
-        user = Users.find_by(id: user_id)
-        user.update(posts_counter: n)
+        Users.find_by(id: user_id).update(posts_counter: n)
     end
 
     # A method which returns the 5 most recent comments for a given post.
