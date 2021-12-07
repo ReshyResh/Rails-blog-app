@@ -14,7 +14,7 @@ class CommentsController < ApplicationController
             flash[:success] = "Comment created successfully"
             redirect_to user_posts_path
           else 
-            flash.now[:error] = "Error: Post could not be created"
+            flash.now[:error] = "Error: Comment could not be created"
             render :new, locals: { newcomment: newcomment }
           end
         end
