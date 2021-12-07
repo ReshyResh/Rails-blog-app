@@ -4,6 +4,6 @@
         <a href="/users/<%= user.id %>">
         <h2> <%= user.name %> </h2>
         </a>
-        <h2 class="user-posts"> Number of posts:<%= user.get_number_of_posts(user.id) %> </h2>
+        <h2 class="user-posts"> Number of posts:<%= user.posts.size %> </h2>
     </div>
 <% end %>
