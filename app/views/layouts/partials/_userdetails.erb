@@ -6,6 +6,7 @@
 <div class="user-div">
     <p> <%= @user.bio %> </p>
 </div>
+<a href = "./posts/new" class="button"> Create new post </a>
 <% @user.posts.each do |post| %>
     <div class="user-div">
         <div style="display:flex;flex-flow:column;">
@@ -13,6 +14,6 @@
             <h2> <%= post.title %> </h2></a><br>
             <h3> <%= post.text.first(400) %> </h3>
         </div>
-        <p class="user-posts"> Likes:<%= post.likes_counter %><br>Comments:<%= post.comments.size %> </p>
+        <p class="user-posts"> Likes:<%= post.likes.size %><br>Comments:<%= post.comments.size %> </p>
     </div>
 <% end %>
