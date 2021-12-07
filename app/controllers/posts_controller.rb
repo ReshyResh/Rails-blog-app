@@ -24,8 +24,7 @@ class PostsController < ApplicationController
   end
   
   def create
-    # newpost = Post.new(Time.now, Time.now, 1, title, text, 0, 0)
-    newpost = Post.new(params.require(:post).permit(:title, :text).merge(created_at: Time.now, updated_at: Time.now,user_id: 2, comments_counter: 0, likes_counter: 0))
+    newpost = Post.new(params.require(:post).permit(:title, :text).merge(created_at: Time.now, updated_at: Time.now,user_id: current_user.id, comments_counter: 0, likes_counter: 0))
     respond_to do |format|
       format.html do
         if newpost.save

@@ -9,7 +9,7 @@
             <h2><a href="/users/<%= @user.id %>/posts/<%= post.id %>"> <%= post.title %> </a></h2><br>
             <h3> <%= post.text.first(400) %>... </h3>
         </div>
-        <p class="user-posts"> Likes:<%= post.likes_counter %><br>Comments:<%= post.comments.size %> </p>
+        <p class="user-posts"> Likes:<%= post.likes.size %><br>Comments:<%= post.comments.size %> </p>
     </div>
     <div class="comments">
         <h2> Comments </h2>
