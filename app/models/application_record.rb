@@ -1,5 +1,3 @@
 class ApplicationRecord < ActiveRecord::Base
-  def current_user
-    Users.first
-  end
+  self.abstract_class = true
 end

@@ -1,0 +1,18 @@
+<div class="user-div">
+    <img class = "user-image" alt='alt image for <%= @user.name %>' />
+    <h2> <%= @user.name %> </h2>
+    <h2 class="user-posts"> Number of posts:<%= @user.posts.size %> </h2>
+</div>
+<div class="user-div">
+    <p> <%= @user.bio %> </p>
+</div>
+<% @user.posts.each do |post| %>
+    <div class="user-div">
+        <div style="display:flex;flex-flow:column;">
+            <a href="/users/<%= @user.id %>/posts/<%= post.id %>">
+            <h2> <%= post.title %> </h2></a><br>
+            <h3> <%= post.text.first(400) %> </h3>
+        </div>
+        <p class="user-posts"> Likes:<%= post.likes_counter %><br>Comments:<%= post.comments.size %> </p>
+    </div>
+<% end %>

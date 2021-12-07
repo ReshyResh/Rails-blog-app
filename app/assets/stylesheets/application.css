@@ -13,3 +13,37 @@
  *= require_tree .
  *= require_self
  */
+
+    /* Index styling */
+
+ .user-div {
+     padding: 10px;
+     border: 2px solid black;
+     display: flex;
+     flex-flow: row;
+     align-items: center;
+ }
+
+ .user-image {
+     width: 100px;
+     height: 100px;
+     border: 1px solid grey;
+     margin-right: 20px;
+ }
+
+ .user-posts {
+     margin-left: auto;
+
+ }
+
+ /* Details styling */
+ .user-details-container {
+     display: flex;
+ }
+
+ /* Comment styling */
+ .comments {
+     border: 1px solid red;
+     margin: 10px 0 10px 0;
+ }
+ 
