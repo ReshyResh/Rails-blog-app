@@ -8,8 +8,9 @@ class PostsController < ApplicationController
 
   def show
     return unless Post.exists?(id: params['id'])
+
     @post = Post.find_by(id: params['id'])
-    if (@post.user_id == params['user_id'].to_i)
+    if @post.user_id == params['user_id'].to_i
       render '../views/layouts/partials/_userpostdetails'
     else
       render '../views/layouts/partials/_wrongid'
@@ -22,16 +23,18 @@ class PostsController < ApplicationController
       format.html { render :new }
     end
   end
-  
+
   def create
-    newpost = Post.new(params.require(:post).permit(:title, :text).merge(created_at: Time.now, updated_at: Time.now,user_id: current_user.id, comments_counter: 0, likes_counter: 0))
+    # rubocop:disable Layout
+    newpost = Post.new(params.require(:post).permit(:title, :text).merge(created_at: Time.now, updated_at: Time.now, user_id: current_user.id, comments_counter: 0, likes_counter: 0))
+    # rubocop:enable Layout
     respond_to do |format|
       format.html do
         if newpost.save
-          flash[:success] = "Post created successfully"
+          flash[:success] = 'Post created successfully'
           redirect_to user_posts_path
-        else 
-          flash.now[:error] = "Error: Post could not be created"
+        else
+          flash.now[:error] = 'Error: Post could not be created'
           render :new, locals: { newpost: newpost }
         end
       end
