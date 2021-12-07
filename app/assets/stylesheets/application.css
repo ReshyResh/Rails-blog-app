@@ -46,4 +46,10 @@
      border: 1px solid red;
      margin: 10px 0 10px 0;
  }
+
+ .button {
+     font-size: 2em;
+     height: 100px;
+     background-color: darkgrey;
+ }
  

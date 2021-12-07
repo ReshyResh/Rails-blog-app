@@ -18,9 +18,13 @@ class PostsController < ApplicationController
   end
 
   def new
-    @newpost = Post.new
-    respond_to do |format|
-      format.html { render :new }
+    if params['user_id'].to_i == current_user.id
+      @newpost = Post.new
+      respond_to do |format|
+        format.html { render :new }
+      end
+    else
+      render '../views/layouts/partials/_wrongid'
     end
   end
 

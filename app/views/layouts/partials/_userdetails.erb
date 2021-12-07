@@ -6,6 +6,7 @@
 <div class="user-div">
     <p> <%= @user.bio %> </p>
 </div>
+<a href = "./posts/new" class="button"> Create new post </a>
 <% @user.posts.each do |post| %>
     <div class="user-div">
         <div style="display:flex;flex-flow:column;">
