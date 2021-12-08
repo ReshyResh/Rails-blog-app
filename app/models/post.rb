@@ -2,6 +2,14 @@ class Post < ApplicationRecord
   belongs_to :user
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
+
+  validates :id, uniqueness: true
+  validates :text, presence: true
+  validates :title, presence: true
+  validates :user_id, presence: true, numericality: { only_integer: true }
+  validates :comments_counter, presence: true, numericality: { equal_to: 0 }
+  validates :likes_counter, presence: true, numericality: { equal_to: 0 }
+
   # A method that updates the posts counter for a user.
 
   def update_counter(num, user_id)
