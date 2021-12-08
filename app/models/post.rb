@@ -5,10 +5,10 @@ class Post < ApplicationRecord
 
   validates :id, uniqueness: true
   validates :text, presence: true
-  validates :title, presence: true
+  validates :title, presence: true, length: { maximum: 250 }
   validates :user_id, presence: true, numericality: { only_integer: true }
-  validates :comments_counter, presence: true, numericality: { equal_to: 0 }
-  validates :likes_counter, presence: true, numericality: { equal_to: 0 }
+  validates :comments_counter, presence: true, numericality: { greater_than_or_equal_to: 0 }
+  validates :likes_counter, presence: true, numericality: { greater_than_or_equal_to: 0 }
 
   # A method that updates the posts counter for a user.
 
