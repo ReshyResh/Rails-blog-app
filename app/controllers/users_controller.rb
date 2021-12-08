@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   def show
     return unless User.exists?(id: params['id'])
 
-    @user = User.find_by(id: params['id'])
+    @user = User.includes(posts: %i[comments likes]).find_by(id: params['id'])
     render '../views/layouts/partials/_userdetails'
   end
 end

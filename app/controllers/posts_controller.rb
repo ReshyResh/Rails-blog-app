@@ -2,14 +2,14 @@ class PostsController < ApplicationController
   def index
     return unless User.exists?(id: params['user_id'])
 
-    @user = User.find_by(id: params['user_id'])
+    @user = User.includes(posts: %i[likes comments]).find_by(id: params['user_id'])
     render '../views/layouts/partials/_userposts'
   end
 
   def show
     return unless Post.exists?(id: params['id'])
 
-    @post = Post.find_by(id: params['id'])
+    @post = Post.includes(:likes, :comments).find_by(id: params['id'])
     if @post.user_id == params['user_id'].to_i
       render '../views/layouts/partials/_userpostdetails'
     else
